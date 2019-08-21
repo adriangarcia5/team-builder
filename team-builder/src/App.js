@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import SignupForm from './components/Form';
 import './App.css';
 
 
@@ -9,7 +10,10 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Team Member List</h1>
+      <h1>Our Team</h1>
+      <h3>Add a Team Member:</h3>
+      <SignupForm />
+      <h3>Team Member List</h3>
       <div>
         <h4>Name: Adrian</h4>
         <p>Email: Adrian@this.com</p>
