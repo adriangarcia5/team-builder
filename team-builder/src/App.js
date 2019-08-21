@@ -7,13 +7,13 @@ import { people } from './TeamData';
 import './App.css';
 
 function App() {
+
   const [member, setMember] = useState(people);
- 
+  
   const [memberToEdit, setMemberToEdit] = useState();
 
   //Function that will add a new member to state(people). 
   const addMember = person => {
-    person.id = member.length + 1
     setMember([...member, person])
   }
 
@@ -26,7 +26,7 @@ function App() {
         <SignupForm 
           member={member}
           setMember={setMember}
-          addMember={addMember}
+          submitMember={addMember}
          />
       </div>
       <div className="right-column">
