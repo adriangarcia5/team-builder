@@ -8,10 +8,8 @@ import './App.css';
 
 function App() {
 
-  const {teamMember, setTeamMember} = useState([])
-  console.log(members)
-  //Probably going to come back here and fix something with the key and value.
-    
+  const {teamMember, setTeamMember} = useState({})
+  
   return (
     <div className="App">
       <h1>Who's on the team</h1>
@@ -23,11 +21,25 @@ function App() {
       <TeamList
           teamMember={teamMember}
           setTeamMember={setTeamMember}
-      /> 
+      />
+      {members.map( (person, index) => {
+        console.log(person)
+        return  (
+          <div className="container" key={index}> 
+                <h4>Name: {person.name}</h4>
+                <p>Email: {person.email}</p>
+                <p>Email: {person.role}</p>
+          </div>
+        )
+      })}
+        
     </div>
   );
 }
 export default App;
+
+    
+ 
 
 
 
