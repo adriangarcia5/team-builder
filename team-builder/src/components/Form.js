@@ -1,11 +1,10 @@
 import React, {useState} from 'react';
 
 
-
-export default function SignupForm(props) {
+export default function SignupForm(members, setMembers, memberToEdit) {
     const [newPerson, setNewPerson] = useState({name:"", email:"", role:""})
-    const members = props;
 
+    console.log("teamMembers",members);
     function handleChange(event) {
         const updatedUser ={...newPerson, [event.target.name]: event.target.value};
         console.log(
@@ -59,7 +58,7 @@ export default function SignupForm(props) {
             </div>
             <button type="submit" className="btn-form">
           Submit</button>
-          {console.log('Form', members)}
+          {/* {console.log('Form', members)} */}
         </form>
     )
 }

@@ -1,4 +1,4 @@
-export const members = [ 
+export const people = [ 
     {
        id:1, 
        name:'Adrian',

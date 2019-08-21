@@ -2,44 +2,46 @@ import React, { useState } from 'react';
 
 import SignupForm from './components/Form';
 import TeamList from './components/TeamList';
-import { members } from './TeamData';
+import { people } from './TeamData';
 
 import './App.css';
 
 function App() {
+  const [member, setMember] = useState(people);
+ 
+  const [memberToEdit, setMemberToEdit] = useState();
 
-  const {teamMember, setTeamMember} = useState({})
-  
+  //Function that will add a new member to state(people). 
+  const addMember = person => {
+    person.id = member.length + 1
+    setMember([...member, person])
+  }
+
   return (
     <div className="App">
       <h1>Who's on the team</h1>
-      <h3>Add a Team Member:</h3>
-      <SignupForm 
-          teamMember={teamMember}
-          setTeamMember={setTeamMember}
-      />
-      <TeamList
-          teamMember={teamMember}
-          setTeamMember={setTeamMember}
-      />
-      {members.map( (person, index) => {
-        console.log(person)
-        return  (
-          <div className="container" key={index}> 
-                <h4>Name: {person.name}</h4>
-                <p>Email: {person.email}</p>
-                <p>Email: {person.role}</p>
-          </div>
-        )
-      })}
-        
+      <div className="app-container">
+      <div className=" left-column">
+      <h3>Add a Team Member</h3>
+        <SignupForm 
+          member={member}
+          setMember={setMember}
+          addMember={addMember}
+         />
+      </div>
+      <div className="right-column">
+        <h3>Meet the Development Team</h3>
+        <TeamList
+          member={member}
+          setMember={setMember}
+          memberToEdit={memberToEdit}
+          setMemberToEdit={setMemberToEdit}
+        />
+      </div>
+      </div>
+      
     </div>
   );
 }
 export default App;
-
-    
- 
-
-
 
